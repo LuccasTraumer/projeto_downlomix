@@ -1,18 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Downlomix</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="img/logoDownloMix.png" alt="imgLogo">
+        <hr>
+        </div>    
+    </header>
+    <br>
     <div class="container">
-        <h1>Downlomix</h1>
-        <input type="text" id="videoUrl" placeholder="Insira a URL do vídeo do YouTube">
-        <button id="downloadButton">Baixar</button>
+        <h3>Bem vindo(a) ao DownloMix! <br>
+            Aqui, você consegue baixar suas músicas e vídeos favoritos de maneira fácil e rápida.</h3> <br>
+        <input type="text" id="videoUrl" placeholder="Insira a URL aqui e click em “Baixar”">
+        <br>
+
+        <div class="OptionDownload">
+        <select name="typeDownload" id="typeDownload" class="select_type" onclick="selectype(event)">
+            <option selected value="mp3">mp3</option>
+            <option value="mp4">mp4</option>
+        </select>
+
+        <select name="quality" id="quality" class="select_quality" onclick="selectquality()" >
+            <option value="144p" class="selected-resolution_option">144p</option>
+            <option value="360p" class="selected-resolution_option">360p</option>
+            <option value="720p" class="selected-resolution_option">720p</option>
+            <option value="1080p" class="selected-resolution_option">1080p</option>
+        </select>
+        <button id="downloadButton">Click aqui para Baixar</button>
+        </div>
     </div>
     <div class="result" id="result"></div>
-    <script src="script.js"></script>
+   
+    <footer>
+        <hr>
+    </footer>
 </body>
 </html>
