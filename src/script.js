@@ -1,55 +1,42 @@
-let isVideo = false
+let isVideo = false;
+const serverURL = 'http://localhost:3000';
 
 function selectype(event){
-    console.log(event.target.value)
-    isVideo = event.target.value === "mp4"
-    const quality = document.querySelector("#quality")
-    quality.classList.add(isVideo ? "block":"none")
-    quality.classList.remove(isVideo ? "none":"block")
+    isVideo = event.target.value === "mp4";
+    const quality = document.querySelector("#quality");
+    quality.classList.add(isVideo ? "block":"none");
+    quality.classList.remove(isVideo ? "none":"block");
 }
 
+() => {
+    const quality = document.querySelector("#quality");
+    quality.classList.add(isVideo ? "block":"none");
+}
 
-document.addEventListener('DOMContentLoaded', function () {
-    const quality = document.querySelector("#quality").classList.add(isVideo ? "block":"none")
-
-    const downloadButton = document.getElementById('downloadButton');
-    const videoUrlInput = document.getElementById('videoUrl');
-    const resultDiv = document.getElementById('result');
-
+async function downloadMedia() {
+    const mediaURLYT = document.getElementById('videoUrl').value;
     const typeFile = document.querySelector("#typeDownload").value;
-    console.log(typeFile)
 
-    downloadButton.addEventListener('click', () => {
-        const videoUrl = videoUrlInput.value;
-        if (videoUrl.trim() === '') {
-            alert("Por favor, insira uma URL válida.");
-            return;
-        }
-
-        fetch('/download', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ videoUrl, isVideo }),
-        })
-            .then(response => {
-                if (response.ok) {
-                    return response.blob();
-                }
-                // throw new Error('Erro ao fazer o download do vídeo.');
-                alert("Erro ao fazer o download do vídeo.")
-            })
-            .then(blob => {
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.setAttribute('download', ``);
+    if (typeFile === 'mp3') {
+        await fetch(`${serverURL}/downloadmp3?url=${mediaURLYT}`)
+            .then(res => {
+                var a = document.createElement('a');
+                a.href = `${serverURL}/downloadmp3?url=${mediaURLYT}`;
+                a.setAttribute('download', '');
                 a.click();
-                window.URL.revokeObjectURL(url);
-            })
-            .catch(error => {
-                resultDiv.textContent = `Erro: ${error.message}`;
+            }).catch(error => {
+                alert("Invalid url", error);
             });
-    });
-});
+    } else {
+        const resolutionVideo = quality.value;
+        await fetch(`${serverURL}/downloadmp4?url=${mediaURLYT}&resolution=${resolutionVideo}`)
+            .then(res => {
+                var a = document.createElement('a');
+                a.href = `${serverURL}/downloadmp4?url=${mediaURLYT}&resolution=${resolutionVideo}`;
+                a.setAttribute('download', '');
+                a.click();
+            }).catch(error => {
+                alert('Invalid url', error);
+            });
+    }
+}

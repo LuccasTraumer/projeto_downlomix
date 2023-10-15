@@ -27,13 +27,13 @@
             <option value="mp4">mp4</option>
         </select>
 
-        <select name="quality" id="quality" class="select_quality" onclick="selectquality()" >
+        <select name="quality" id="quality" class="select_quality" onclick="selectQuality()">
             <option value="144p" class="selected-resolution_option">144p</option>
             <option value="360p" class="selected-resolution_option">360p</option>
             <option value="720p" class="selected-resolution_option">720p</option>
             <option value="1080p" class="selected-resolution_option">1080p</option>
         </select>
-        <button id="downloadButton">Click aqui para Baixar</button>
+        <button id="downloadButton" onclick="downloadMedia()">Click aqui para Baixar</button>
         </div>
     </div>
     <div class="result" id="result"></div>
