@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const typeFile = document.querySelector("#typeDownload").value;
     console.log(typeFile)
 
-    downloadButton.addEventListener('click', function () {
+    downloadButton.addEventListener('click', () => {
         const videoUrl = videoUrlInput.value;
         if (videoUrl.trim() === '') {
-            resultDiv.textContent = 'Por favor, insira uma URL válida.';
+            alert("Por favor, insira uma URL válida.");
             return;
         }
 
@@ -31,19 +31,20 @@ document.addEventListener('DOMContentLoaded', function () {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ videoUrl }),
+            body: JSON.stringify({ videoUrl, isVideo }),
         })
             .then(response => {
                 if (response.ok) {
                     return response.blob();
                 }
-                throw new Error('Erro ao fazer o download do vídeo.');
+                // throw new Error('Erro ao fazer o download do vídeo.');
+                alert("Erro ao fazer o download do vídeo.")
             })
             .then(blob => {
                 const url = window.URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = 'video.mp4';
+                a.setAttribute('download', ``);
                 a.click();
                 window.URL.revokeObjectURL(url);
             })
