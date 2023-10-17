@@ -1,0 +1,82 @@
+@import './assets/scss/color.scss';
+
+body {
+    padding: 0;
+    margin: 0;
+    background: $vermelho;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho {
+    &__logo {
+        height: 15vh;
+        max-height: 20vh;
+    }
+}
+
+.container {
+    margin-top: 3.125rem;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+        text-align: center;
+        color: $branco;
+        font-size: 2rem;
+    }
+
+    &__subtitle {
+        font-size: 1rem;
+        color: $branco;
+        text-align: center;
+    }
+
+    &__input {
+        width: 80%;
+        padding: 0.6rem;
+        border-radius: .5rem;
+        border: none;
+    }
+
+    &__optionDownload {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    select{
+        padding: 0.6rem 1.25rem;
+        background-color: $laranja;
+        color: $branco;
+        border: none;
+        cursor: pointer;
+        margin: 0.3rem;
+        border-radius: .5rem;
+    }
+
+    &__button {
+        padding: 0.6rem 1.25rem;
+        background-color: $laranja;
+        color: $branco;
+        border: none;
+        cursor: pointer;
+        margin: 0.3rem;
+    }
+}
+
+.result {
+    margin-top: 1.25rem;
+    font-weight: bold;
+    color: $cinza;
+}
+.block{
+    display: block;
+}
+.none{
+    display: none;
+}

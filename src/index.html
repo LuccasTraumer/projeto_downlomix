@@ -4,42 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Downlomix</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header class="cabecalho">
-        <div class="logo">
-            <img src="img/logoDownloMix.png" alt="imgLogo">
-        <hr>
-        </div>    
+        <img class="cabecalho__logo" loading="lazy" src="assets/img/downlomix.svg" alt="DownloMix Logo">
     </header>
     <br>
     <div class="container">
-        <h3>Bem vindo(a) ao DownloMix! <br>
-            Aqui, você consegue baixar suas músicas e vídeos favoritos de maneira fácil e rápida.</h3> <br>
-        <input type="text" id="videoUrl" placeholder="Insira a URL aqui e click em “Baixar”">
+        <h3 class="container__title">Bem vindo(a) ao DownloMix!</h3>
+        <h5 class="container__subtitle">Aqui, você consegue baixar suas músicas e vídeos favoritos de maneira fácil e rápida.</h5>
+        <input class="container__input" type="text" id="videoUrl" placeholder="Insira a URL aqui e click em “Baixar”">
         <br>
 
-        <div class="OptionDownload">
-        <select name="typeDownload" id="typeDownload" class="select_type" onclick="selectype(event)">
+        <div class="container__optionDownload">
+        <select
+                name="typeDownload"
+                id="typeDownload"
+                class="container__optionDownload--select_type"
+                onclick="selectype(event)"
+        >
             <option selected value="mp3">mp3</option>
             <option value="mp4">mp4</option>
         </select>
 
-        <select name="quality" id="quality" class="select_quality" onclick="selectQuality()">
+        <select name="quality" id="quality" class="container__optionDownload--select_quality" onclick="selectQuality()">
             <option value="144p" class="selected-resolution_option">144p</option>
             <option value="360p" class="selected-resolution_option">360p</option>
             <option value="720p" class="selected-resolution_option">720p</option>
             <option value="1080p" class="selected-resolution_option">1080p</option>
         </select>
-        <button id="downloadButton" onclick="downloadMedia()">Click aqui para Baixar</button>
         </div>
+
+        <button
+                class="container__button"
+                id="downloadButton"
+                onclick="downloadMedia()"
+                disabled
+        >
+            Click aqui para Baixar
+        </button>
     </div>
-    <div class="result" id="result"></div>
-   
+    <div class="result" id="result">
+        <p id="plataforma" hidden="true"></p>
+    </div>
+
+    <section class="ads">
+        Include Google ads to monetize platform.
+    </section>
     <footer>
-        <hr>
+        Copy
     </footer>
 </body>
 </html>

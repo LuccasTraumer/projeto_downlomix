@@ -9,8 +9,8 @@ body {
 }
 
 .cabecalho__logo {
-  height: 15vh;
-  max-height: 20vh;
+  height: 5vh;
+  max-height: 10vh;
 }
 
 .container {
@@ -73,4 +73,4 @@ body {
   display: none;
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=style.css.map */

@@ -8,11 +8,6 @@ function selectype(event){
     quality.classList.remove(isVideo ? "none":"block");
 }
 
-() => {
-    const quality = document.querySelector("#quality");
-    quality.classList.add(isVideo ? "block":"none");
-}
-
 async function downloadMedia() {
     const mediaURLYT = document.getElementById('videoUrl').value;
     const typeFile = document.querySelector("#typeDownload").value;
@@ -40,3 +35,23 @@ async function downloadMedia() {
             });
     }
 }
+
+document.querySelector('#videoUrl').addEventListener('change', (evt) => {
+    console.warn(evt.target.value)
+
+    const plataforma = document.querySelector('#plataforma');
+    plataforma.hidden = false;
+
+    if(evt.target.value.includes('youtube')){
+        plataforma.innerText = 'Conteudo do Youtube';
+    }  else if (evt.target.value.includes('tiktok')) {
+        plataforma.innerText = 'Conteudo do Tiktok';
+    } else if (evt.target.value.includes('twitter')) {
+        plataforma.innerText = 'Conteudo do Twitter';
+    } else if (evt.target.value.includes('facebook')) {
+        plataforma.innerText = 'Conteudo do Facebook';
+    } else {
+        plataforma.innerText = 'Plataforma de Video não identificada!';
+        document.querySelector('#downloadButton').disabled;
+    }
+})
