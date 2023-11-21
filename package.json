@@ -11,8 +11,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1", 
-    "start": "npm run build && node src/server/server.js",
-    "build": "sass src/styles.scss src/assets/css/style.css"
+    "start": "npm run sass && node src/server/server.js",
+    "sass": "sass src/styles.scss src/assets/css/style.css",
+    "build": "npm install"
   },
   "keywords": [],
   "author": "",
