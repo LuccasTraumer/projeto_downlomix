@@ -7,6 +7,8 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 app.get('/downloadmp3', async (req, res, next) => {
+  console.error('LOGGING DOWNLOAD MP3')
+
   try {
     var url = req.query.url;
 
@@ -40,6 +42,7 @@ app.get('/downloadmp3', async (req, res, next) => {
 });
 
 app.get('/downloadmp4', async (req, res, next) => {
+  console.error('LOGGING DOWNLOAD MP4')
   try {
     let url = req.query.url;
     let resolution = req.query.resolution;

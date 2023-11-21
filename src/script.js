@@ -12,6 +12,8 @@ async function downloadMedia() {
     const mediaURLYT = document.getElementById('videoUrl').value;
     const typeFile = document.querySelector("#typeDownload").value;
 
+    console.warn(typeFile)
+
     if (typeFile === 'mp3') {
         await fetch(`${serverURL}/downloadmp3?url=${mediaURLYT}`)
             .then(res => {
@@ -38,6 +40,8 @@ async function downloadMedia() {
 
 document.querySelector('#videoUrl').addEventListener('change', (evt) => {
     console.warn(evt.target.value)
+    mediaURLYT ? document.getElementById('downloadButton').removeAttribute('disable') : false;
+
 
     const plataforma = document.querySelector('#plataforma');
     plataforma.hidden = false;

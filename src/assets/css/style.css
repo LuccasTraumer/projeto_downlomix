@@ -9,8 +9,8 @@ body {
 }
 
 .cabecalho__logo {
-  height: 5vh;
-  max-height: 10vh;
+  height: 15vh;
+  max-height: 20vh;
 }
 
 .container {
@@ -57,6 +57,10 @@ body {
   border: none;
   cursor: pointer;
   margin: 0.3rem;
+}
+.container__button:disabled {
+  background: grey;
+  color: black;
 }
 
 .result {
