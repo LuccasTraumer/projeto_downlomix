@@ -1,5 +1,5 @@
 let isVideo = false;
-const serverURL = 'http://localhost:3000';
+const serverURL = 'https://projeto-downlomix-5bt8.vercel.app';
 
 function selectype(event){
     isVideo = event.target.value === "mp4";
